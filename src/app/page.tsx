@@ -1,101 +1,119 @@
 import Image from "next/image";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <SidebarProvider>
+      {/* Header Section */}
+      <header className="fixed top-0 left-80 right-0 z-50 bg-white shadow-md p-4 flex items-center justify-between border-b">
+        <h1 className="text-xl font-bold">Demo Project: August 2024</h1>
+        <div className="flex items-center space-x-4">
+          <button className="text-sm font-medium text-gray-700 hover:text-blue-500">Product Manager</button>
+          <div className="relative">
+            <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">5</span>
+            <button className="text-gray-600">
+              <i className="fas fa-bell"></i>
+            </button>
+          </div>
+          <div className="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center font-bold">
+            PM
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </header>
+
+      {/* Menu Bar */}
+      <nav className="fixed top-16 left-80 right-0 z-40 bg-gray-100 border-b p-3">
+        <ul className="flex justify-start space-x-6 px-4">
+          <li>
+            <Link href="#product-tracker" className="text-sm font-medium text-gray-700 hover:text-blue-500">
+              Product Tracker
+            </Link>
+          </li>
+          <li>
+            <Link href="#products" className="text-sm font-medium text-gray-700 hover:text-blue-500">
+              Products
+            </Link>
+          </li>
+          <li>
+            <Link href="#activities" className="text-sm font-medium text-gray-700 hover:text-blue-500">
+              Activities
+            </Link>
+          </li>
+          <li>
+            <Link href="#workflow-members" className="text-sm font-medium text-gray-700 hover:text-blue-500">
+              Workflow Members
+            </Link>
+          </li>
+          <li>
+            <Link href="#settings" className="text-sm font-medium text-gray-700 hover:text-blue-500">
+              Settings
+            </Link>
+          </li>
+        </ul>
+      </nav>
+
+      {/* Main Layout */}
+      <div className="flex h-screen pt-28">
+        {/* Sidebar */}
+        <AppSidebar  />
+
+        {/* Main Content */}
+        <div className="flex-1 p-6 bg-gray-100 overflow-auto">
+          {/* Product Tracker Section */}
+          <section id="Sampling" className="mb-6">
+            <h2 className="text-lg font-semibold mb-4">Sampling</h2>
+            <div className="grid grid-cols-4 gap-4">
+              {/* Sample Milestone Card */}
+              {Array.from({ length: 8 }).map((_, index) => (
+                <div key={index} className="p-4 border rounded-lg shadow-sm bg-white">
+                  <h3 className="text-sm font-bold mb-2">Sampling</h3>
+                  <p className="text-sm">Initial Review</p>
+                  <div className="mt-2 text-xs text-gray-600">
+                    <p>Overdue: 2 tasks</p>
+                    <p>Pending: 1 task</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Products Section */}
+          <section id="products" className="mb-6">
+            <h2 className="text-lg font-semibold mb-4">Products</h2>
+            <div className="grid grid-cols-1 gap-4">
+              {Array.from({ length: 3 }).map((_, index) => (
+                <div key={index} className="flex items-center justify-between p-4 border rounded-lg shadow-sm bg-white">
+                  <div>
+                    <h3 className="text-sm font-bold mb-2">Pink Water Color Bibs</h3>
+                    <p className="text-xs text-gray-500">BBU-WCF-BIB-AOPPNK</p>
+                  </div>
+                  <button className="text-blue-500 text-sm">View Details</button>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Activities Section */}
+          <section id="activities" className="mt-6">
+            <h2 className="text-lg font-semibold mb-4">Activities</h2>
+            <p className="text-sm">This section will display activity logs.</p>
+          </section>
+
+          {/* Workflow Members Section */}
+          <section id="workflow-members" className="mt-6">
+            <h2 className="text-lg font-semibold mb-4">Workflow Members</h2>
+            <p className="text-sm">This section will display details of workflow members.</p>
+          </section>
+
+          {/* Settings Section */}
+          <section id="settings" className="mt-6">
+            <h2 className="text-lg font-semibold mb-4">Settings</h2>
+            <p className="text-sm">This section will allow you to configure settings.</p>
+          </section>
+        </div>
+      </div>
+    </SidebarProvider>
   );
 }
