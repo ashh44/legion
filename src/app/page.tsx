@@ -57,61 +57,74 @@ export default function Home() {
       {/* Main Layout */}
       <div className="flex h-screen pt-28">
         {/* Sidebar */}
-        <AppSidebar  />
+        <AppSidebar />
 
-        {/* Main Content */}
-        <div className="flex-1 p-6 bg-gray-100 overflow-auto">
-          {/* Product Tracker Section */}
-          <section id="Sampling" className="mb-6">
-            <h2 className="text-lg font-semibold mb-4">Sampling</h2>
-            <div className="grid grid-cols-4 gap-4">
-              {/* Sample Milestone Card */}
-              {Array.from({ length: 8 }).map((_, index) => (
-                <div key={index} className="p-4 border rounded-lg shadow-sm bg-white">
-                  <h3 className="text-sm font-bold mb-2">Sampling</h3>
-                  <p className="text-sm">Initial Review</p>
-                  <div className="mt-2 text-xs text-gray-600">
-                    <p>Overdue: 2 tasks</p>
-                    <p>Pending: 1 task</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
+        {/* Content Area */}
+        
+        <div className="flex-1 flex left-80 overflow-auto">
           {/* Products Section */}
-          <section id="products" className="mb-6">
+          <aside className="w-1/4 p-4 bg-gray-100 border-r overflow-auto">
             <h2 className="text-lg font-semibold mb-4">Products</h2>
             <div className="grid grid-cols-1 gap-4">
               {Array.from({ length: 3 }).map((_, index) => (
-                <div key={index} className="flex items-center justify-between p-4 border rounded-lg shadow-sm bg-white">
-                  <div>
-                    <h3 className="text-sm font-bold mb-2">Pink Water Color Bibs</h3>
-                    <p className="text-xs text-gray-500">BBU-WCF-BIB-AOPPNK</p>
+                <div key={index} className="p-4 border rounded-lg shadow-sm bg-white">
+                  <h3 className="text-sm font-bold mb-2">Pink Water Color Bibs</h3>
+                  <p className="text-xs text-gray-500">BBU-WCF-BIB-AOPPNK</p>
+                  <div className="mt-2">
+                    <button className="text-blue-500 text-sm">View Details</button>
                   </div>
-                  <button className="text-blue-500 text-sm">View Details</button>
                 </div>
               ))}
             </div>
-          </section>
+          </aside>
 
-          {/* Activities Section */}
-          <section id="activities" className="mt-6">
-            <h2 className="text-lg font-semibold mb-4">Activities</h2>
-            <p className="text-sm">This section will display activity logs.</p>
-          </section>
+          {/* Main Content */}
+          <main className="flex-1 p-6 bg-gray-100 overflow-auto">
+            {/* Product Tracker Section */}
+            <section id="product-tracker" className="mb-6">
+              <h2 className="text-lg font-semibold mb-4">Product Tracker</h2>
+              <div className="grid grid-cols-4 gap-4">
+                {Array.from({ length: 12 }).map((_, index) => (
+                  <div key={index} className="p-4 border rounded-lg shadow-sm bg-white">
+                    <h3 className="text-sm font-bold mb-2">Sampling</h3>
+                    <p className="text-sm">Initial Review</p>
+                    <div className="mt-2 text-xs text-gray-600">
+                      <p>Overdue: 2 tasks</p>
+                      <p>Pending: 1 task</p>
+                    </div>
+                  </div>
+                ))}
+                {Array.from({ length: 12 }).map((_, index) => (
+                  <div key={index} className="p-4 border rounded-lg shadow-sm bg-white">
+                    <h3 className="text-sm font-bold mb-2">Sampling</h3>
+                    <p className="text-sm">Initial Review</p>
+                    <div className="mt-2 text-xs text-gray-600">
+                      <p>Overdue: 2 tasks</p>
+                      <p>Pending: 1 task</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-          {/* Workflow Members Section */}
-          <section id="workflow-members" className="mt-6">
-            <h2 className="text-lg font-semibold mb-4">Workflow Members</h2>
-            <p className="text-sm">This section will display details of workflow members.</p>
-          </section>
+            {/* Activities Section */}
+            <section id="activities" className="mt-6">
+              <h2 className="text-lg font-semibold mb-4">Activities</h2>
+              <p className="text-sm">This section will display activity logs.</p>
+            </section>
 
-          {/* Settings Section */}
-          <section id="settings" className="mt-6">
-            <h2 className="text-lg font-semibold mb-4">Settings</h2>
-            <p className="text-sm">This section will allow you to configure settings.</p>
-          </section>
+            {/* Workflow Members Section */}
+            <section id="workflow-members" className="mt-6">
+              <h2 className="text-lg font-semibold mb-4">Workflow Members</h2>
+              <p className="text-sm">This section will display details of workflow members.</p>
+            </section>
+
+            {/* Settings Section */}
+            <section id="settings" className="mt-6">
+              <h2 className="text-lg font-semibold mb-4">Settings</h2>
+              <p className="text-sm">This section will allow you to configure settings.</p>
+            </section>
+          </main>
         </div>
       </div>
     </SidebarProvider>
